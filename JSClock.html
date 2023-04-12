@@ -1,0 +1,380 @@
+<html>
+    <head>
+        <title>
+            Js Clock
+        </title>
+        <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
+    <style>
+        
+        body{
+            background-color: whitesmoke;
+            transition: 0.8s;
+        }
+        .clock{
+            padding:10px;
+            width:20%;
+            background-color: white;
+            margin: auto;
+            margin-top: 4%;
+            text-align: center;
+            font-size: 50px;
+            font-family: monospace;
+            color: rgb(54, 4, 4);
+            border: 2px solid white;
+            border-radius: 50px;
+            box-shadow: 10px 10px 20px -10px #C21E56;
+            transition: 0.8s;
+        }
+
+        .timer{
+            padding:10px;
+            width:20%;
+            background-color: greenyellow;
+            margin: auto;
+            margin-top: 40%;
+            text-align: center;
+            font-family:monospace;
+            font-size: 50px;
+            color: black;
+            border: 2px solid rgb(250, 150, 50);
+            border-radius: 50px;
+            box-shadow: 5px 10px 30px 5px rgb(250, 150, 50);
+        }
+
+        .text{
+            color:grey;
+            margin: auto;
+            text-align: center;
+            font-family:monospace;
+            font-size: 70px;
+            margin-top:10%;
+            transition: 0.8s;
+        }
+
+        .endtext{
+            color:grey;
+            margin: auto;
+            text-align: center;
+            font-family:'Gruppo';
+            font-size: 30px;
+            margin-top:5%;
+            transition: 0.8s;
+        }
+
+        .chktxt{
+            color:grey;
+            margin: auto;
+            text-align: center;
+            font-family:monospace;
+            font-size: 20px;
+            margin-top:3%;
+            transition: 0.8s;
+        }
+
+        .spanone{
+            transition:0.8s;
+            border-radius: 30px;
+            padding:10px;
+        }
+
+        .chkbtn{
+            display: block;
+            position: relative;
+            margin-left:40.5%;
+            float:left;
+            border: 2px solid white;
+            width:6%;
+            margin-top:2%;
+            text-align: center;
+            background-color: white;
+            color:grey;
+            font-size: 20px;
+            padding:10px;
+            border-radius: 50px;
+            box-shadow: 10px 10px 20px -10px #C21E56;
+            transition: 0.8s;
+            font-family: monospace;
+        }
+
+
+        .rstbtn{
+            position: relative;
+            margin-left:0.5%;
+            float:left;
+            border: 2px solid white;
+            width:6%;
+            margin-top:2%;
+            text-align: center;
+            background-color: white;
+            color:grey;
+            font-size: 20px;
+            padding:10px;
+            border-radius: 50px;
+            box-shadow: 10px 10px 20px -10px #C21E56;
+            transition: 0.8s;
+            font-family: monospace;
+        }
+
+        .btn{
+            border: 2px solid white;
+            width:6%;
+            margin-left:53.5%;
+            margin-top:-3.1%;
+            text-align: center;
+            background-color: white;
+            color:grey;
+            font-size: 20px;
+            padding:10px;
+            border-radius: 50px;
+            box-shadow: 10px 10px 20px -10px #C21E56;
+            transition: 0.8s;
+            font-family: monospace;
+        }
+        
+        .avi{
+            display: flex;
+        }
+    </style>
+    </head>
+    <body id="bodyone">
+
+        <na></na>
+    
+    <p id="name" class="text">I am Klock.</p>
+    
+        <div id="clock2" class="clock" >
+            <span class="spanone" id="clock"></span>
+        </div>
+        <p id="chktxt" class="chktxt">You can check your love with this page.</p>
+        <button id="chkbtn" class="chkbtn">Check</button>
+        <button id="rstbtn" class="rstbtn">Reset</button>
+        <button id="btn" class="btn" onclick="window.open('', '_self', ''); window.close();" >Exit</button>
+        <p id="endtxt" class="endtext"><b>Dev@Avinash Pandey</b></p>
+
+
+    <sh></sh>
+
+
+
+    <script>
+
+        
+        //JavaScript for the clock
+
+        //To get the current time
+        var showCurrentTime=function(){
+            var clock=document.getElementById("clock");
+            var currentTime=new Date();
+            var hours=currentTime.getHours();
+            var minutes=currentTime.getMinutes();
+            var seconds=currentTime.getSeconds();
+
+
+            //To add "0" when time in single digits
+     if(minutes<10){
+        minutes="0"+minutes;
+     }
+     if(seconds<10){
+        seconds="0"+seconds;
+     }
+     if(hours<10){
+        hours="0"+hours;
+     }
+
+
+     //To display time
+     var clockTime=hours+":"+minutes+":"+seconds;
+
+            clock.innerText=clockTime;
+        }
+
+        //to update the time by calling showCurrentTime function
+        var update=function(){
+            showCurrentTime();
+        }
+
+
+
+        //To call the update function every second
+        const myInterval = setInterval(update,1000);
+
+        //For the text and body animation when mouse enters the specified areas
+        let name=document.getElementById('name');
+        name.addEventListener("mouseenter",function(event){
+
+            let bodyone=document.getElementById('bodyone');
+            setTimeout(function() {
+                bodyone.style.background="#E97454";
+                
+            }, 100);
+            setTimeout(function() {
+                bodyone.style.background="#E30B5C	";
+                
+            }, 100);
+            setTimeout(function() {
+            event.target.style.color="#A8A8A8";
+        },100);
+            setTimeout(function() {
+            event.target.style.color="#696969";
+        },300);
+            setTimeout(function() {
+            event.target.style.color="grey";
+        },400);
+        setTimeout(function() {
+            event.target.style.color="White";
+        }, 500);
+
+        
+       document.getElementById('clock').style.color="white";
+       document.getElementById('clock2').style.backgroundColor="#C21E56";
+       document.getElementById('btn').style.color="white";
+       document.getElementById('btn').style.backgroundColor="#C21E56";
+       document.getElementById('chkbtn').style.color="white";
+       document.getElementById('chkbtn').style.backgroundColor="#C21E56";
+       document.getElementById('rstbtn').style.color="white";
+       document.getElementById('rstbtn').style.backgroundColor="#C21E56";
+       document.getElementById('chktxt').style.color="white";
+       document.getElementById('endtxt').style.color="white";
+       
+            
+        event.target.innerText="Do you love me?";
+        event.target.style.fontSize="100px";
+       
+      
+        });       
+
+
+        //For the text animation when mouse exits the specified areas
+        name.addEventListener("mouseout",function(event){
+            let bodyone=document.getElementById('bodyone');
+            setTimeout(function() {
+                bodyone.style.background="grey";
+                
+            }, 100);
+            setTimeout(function() {
+                bodyone.style.background="white";
+                
+            }, 100);
+            
+            setTimeout(function() {
+            event.target.style.color="black";
+        },200);
+        setTimeout(function() {
+            event.target.style.color="grey";
+        }, 600);
+
+        document.getElementById('clock').style.color="grey";
+        document.getElementById('clock2').style.backgroundColor="white";
+        document.getElementById('chkbtn').style.color="grey";
+        document.getElementById('chkbtn').style.backgroundColor="white";
+        document.getElementById('btn').style.color="grey";
+        document.getElementById('btn').style.backgroundColor="white";
+        document.getElementById('rstbtn').style.color="grey";
+        document.getElementById('rstbtn').style.backgroundColor="white";
+        document.getElementById('chktxt').style.color="grey";
+        document.getElementById('endtxt').style.color="grey";
+        event.target.innerText="I am Klock.";
+        event.target.style.fontSize="70px";
+        
+       
+      
+        }); 
+
+       //JavaScript for buttons
+        document.addEventListener('click', callEventFuncion)
+   function callEventFuncion(event) {
+      var div = document.querySelectorAll('.chkbtn');
+      var result = Array.apply(0, div).find((v) => v.contains(event.target));
+      
+      //To get random numbers and check if input values match them to show the output animation
+
+        if(result){
+        let x=Math.floor((Math.random() * 10) + 1);
+        if(x==1 || x==5 ||  x==9 || x==2 || x==3){
+        document.getElementById('chktxt').innerHTML="";
+        document.getElementById('clock').style.color="white";
+        document.getElementById('clock2').style.backgroundColor="#C21E56";
+        clearInterval(myInterval);
+        document.getElementById('name').style.fontSize="90px";
+        document.getElementById('clock2').style.marginTop="3%";
+        document.getElementById('chkbtn').style.marginTop="1%";
+        document.getElementById('rstbtn').style.marginTop="1%";
+        document.getElementById('btn').style.marginTop="-3.1%";
+        let bodyone=document.getElementById('bodyone');
+            setTimeout(function() {
+                bodyone.style.background="#E97451";
+                
+            }, 100);
+            setTimeout(function() {
+                bodyone.style.background="#E30B5C	";
+                
+            }, 100);
+            document.getElementById('name').style.color="white";
+            document.getElementById('name').innerText="Wow! The time literally stopped for us. You are in love with me."
+        }
+
+        //If the values don't match
+
+        if(x!=1 && x!=5 &&  x!=9 && x!=2 && x!=3){
+            document.getElementById('clock').innerText="Reset Please!";
+            document.getElementById('clock').style.fontSize="35px";
+            document.getElementById('chkbtn').style.display="none";
+            document.getElementById('btn').style.float="none";
+         document.getElementById('name').style.color="white";
+            document.getElementById('name').innerText="Sorry, we don't match. Reset and Try again !"
+            document.getElementById('chktxt').innerHTML="";
+            document.getElementById('endtxt').innerHTML="";
+        document.getElementById('clock').style.color="white";
+        document.getElementById('clock2').style.backgroundColor="#C21E56";
+        clearInterval(myInterval);
+        document.getElementById('name').style.fontSize="100px";
+        document.getElementById('clock2').style.marginTop="5%";
+        document.getElementById('chkbtn').style.marginTop="2%";
+        document.getElementById('rstbtn').style.marginTop="3%";
+        document.getElementById('rstbtn').style.marginTop="1%";
+        document.getElementById('rstbtn').style.marginLeft="47.2%";
+        document.getElementById('btn').style.display="none";
+        
+     
+        document.getElementById('rstbtn').style.color="white";
+        document.getElementById('rstbtn').style.backgroundColor="#C21E56";
+        let bodyone=document.getElementById('bodyone');
+            setTimeout(function() {
+                bodyone.style.background="#E97451";
+                
+            }, 100);
+            setTimeout(function() {
+                bodyone.style.background="#E30B5C	";
+                
+            }, 100);            
+
+        }
+     }
+     
+
+   }
+
+
+   //For reset button
+   document.addEventListener('click', callReset)
+   function callReset(event) {
+      var div = document.querySelectorAll('.rstbtn');
+      var result2 = Array.apply(0, div).find((v) => v.contains(event.target));
+      
+     if(result2){
+        window.location.reload();
+        setInterval(update,1000);
+        
+     }
+     
+     
+   }
+        
+
+
+
+    </script>
+
+
+</body>
+</html>
